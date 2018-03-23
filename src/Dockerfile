@@ -24,7 +24,7 @@ WORKDIR /home/nix
 
 # Download Nix installer
 RUN curl --output installer.tar.bz2 "$ARCHIVE_URL"
-RUN echo "6312837aee33306cdbb351b75ba1638b89d21b30f0caf0346f9a742425f197ee  installer.tar.bz2" | sha256sum -c
+RUN echo "$ARCHIVE_SHA256  installer.tar.bz2" | sha256sum -c
 RUN mkdir installer
 RUN tar --dir installer --strip-components 1 -xjf installer.tar.bz2
 
